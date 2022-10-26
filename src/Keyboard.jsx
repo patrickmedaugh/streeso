@@ -1,6 +1,33 @@
 import './Keyboard.css'
+import * as Pizzicato from 'pizzicato'
+
+const musicNoteModifiers = {
+    'A': 1,
+    'A#': 58.27 / 55,
+    'B': 61.74 / 55,
+    'C': 65.41 / 55,
+    'C#': 69.3 / 55,
+    'D': 73.42 / 55,
+    'D#': 77.78 / 55,
+    'E': 82.41 / 55,
+    'F': 87.31 / 55,
+    'F#': 92.5 / 55,
+    'G': 98 / 55,
+    'G#': 103.83 / 55,
+}
+let A4is440 = true
+const A4 = A4is440 ? 440 : 432
 
 function Keyboard() {
+  let activeSounds = {}
+  const keyDownHandler = event => {
+    console.log(event.code)
+    const sound = new Pizzicato.Sound({
+
+    })
+    activeSounds[event.code] = sound
+  }
+
   return (
     <div className="Keyboard">
         <div className="KeyboardRow">
